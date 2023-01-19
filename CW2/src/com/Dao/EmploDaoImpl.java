@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
+import com.Exception.ComplaintException;
 import com.Exception.EmplException;
 import com.Model.Employee;
 import com.Util.DBUtil;
@@ -70,4 +72,40 @@ Employee emp = new Employee();
 		return emp;
 	}
 
+	@Override
+	public int raiseComplaint(int empId, String compType) throws ComplaintException {
+int complaintId = 0;
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement("insert into complaints (complaintId,"
+					+ "empId, complaintType,status, dateRaised) values(?,?,?,?,?)");
+			
+			complaintId = (int) (Math.random()*10000);
+			LocalDate dateRaised = LocalDate.now();
+			
+			ps.setInt(1, complaintId);
+			ps.setInt(2, empId);
+			ps.setString(3, compType);
+			ps.setString(4, "Raised");
+			ps.setDate(5, java.sql.Date.valueOf(dateRaised));
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0) {
+				System.out.println("Complaint raised successfully");
+			}else {
+				throw new ComplaintException("Complaint could not be raised. Please try again.");
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new ComplaintException(e.getMessage());
+		}
+		
+		return complaintId;
+	}
+
+	
 }
