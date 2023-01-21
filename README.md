@@ -1,5 +1,5 @@
 # Online Hardware and software support system
-<img align="center" width="40%" height="400"  alt = "coding"   src = "https://github.com/JayeshThakare98/handsome-crack-7534/blob/main/CW2/src/Sof-hard%20Logo.png?raw=true">
+<img align="center" width="40%" height="300"  alt = "coding"   src = "https://github.com/JayeshThakare98/handsome-crack-7534/blob/main/CW2/src/Sof-hard%20Logo.png?raw=true">
 
 
 The system will be available on an online platform for 24x7 access to the employees, the engineers, the Head of the Department and the administration. It Helps keeping your IT staff productive with fast, accurate, remote technical support for your System environment. It provides defect support for a broad range of Products running on System hardware.
